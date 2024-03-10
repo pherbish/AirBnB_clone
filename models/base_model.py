@@ -6,10 +6,21 @@ import models
 
 class BaseModel:
     """This is the parent class for all the models"""
-    def __init__(self):
+    def __init__(self, *args, **kwargs):
+        time_format = "%Y-%m-%dT%H:%M:%S.%f"
         self.id = str(uuid.uuid4())
         self.created_at = datetime.now()
         self.updated_at = datetime.now()
+       
+        if kwargs:
+           for key, value in kwargs.items():
+               if key == "__class__":
+                   continue
+               elif key == "created_at" or key == "updated_at":
+                   setattr(self, key, datetime.strptime(value,time_format))
+               else:
+                   setattr(self, key, value)
+
 
     def save(self):
         """ 
