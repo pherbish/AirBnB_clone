@@ -21,11 +21,15 @@ class BaseModel:
                else:
                    setattr(self, key, value)
 
+          models.storage.new(self)
+
 
     def save(self):
         """ 
         """
         self.updated_at = datetime.now()
+        models.storage.save()
+
     def to_dict(self):
         """
         """
