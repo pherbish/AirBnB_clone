@@ -21,7 +21,7 @@ class BaseModel:
                else:
                    setattr(self, key, value)
 
-          models.storage.new(self)
+        models.storage.new(self)
 
 
     def save(self):
