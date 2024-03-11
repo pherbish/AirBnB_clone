@@ -1,10 +1,11 @@
 #!/usr/bin/python3
+import cmd
 class HBNBCommand(cmd.Cmd):
     """
     HBNBCommand console class
     """
     prompt = "(hbnb) "
-     def do_EOF(self, arg):
+    def do_EOF(self, arg):
         """
         EOF (Ctrl+D) signal to exit the program.
         """
@@ -21,5 +22,5 @@ class HBNBCommand(cmd.Cmd):
         """
         pass
 
-    if __name__ == '__main__':
+if __name__ == '__main__':
     HBNBCommand().cmdloop()
