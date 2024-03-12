@@ -53,6 +53,8 @@ class HBNBCommand(cmd.Cmd):
     HBNBCommand console class
     """
     prompt = "(hbnb) "
+    valid_classes = ["BaseModel", "User", "Amenity",
+                     "Place", "Review", "State", "City"]
     def do_EOF(self, arg):
         """
         EOF (Ctrl+D) signal to exit the program.
